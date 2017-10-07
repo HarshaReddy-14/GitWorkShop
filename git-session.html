@@ -115,6 +115,16 @@
            }
            slides[slideIndex-1].style.display = "block";  
          }
+         // Added new key events - Jose John
+         document.addEventListener("keydown", function(event) {
+            var key = event.which;
+           console.log(event.which);
+           if(key === 39 || key === 40) {
+            plusSlides(1);
+           } else if(key === 37 || key === 38) {
+            plusSlides(-1);
+           }
+         });
       </script>
    </body>
 </html>
