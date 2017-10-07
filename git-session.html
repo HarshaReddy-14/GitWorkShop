@@ -72,23 +72,24 @@
          <div class="mySlides fade">
             <h1>Feature one </h1>
             <ul>
-               <li>Video caling </li>
-               <li>Text mesage</li>
+               <li>Video calling </li>
+               <li>Text message</li>
                <li>Facebook</li>
             </ul>
          </div>
          <div class="mySlides fade">
             <h1>Feature two </h1>
             <ul>
-               <li>chat </li>
+               <li>Chat </li>
                <li>Facebook</li>
             </ul>
          </div>
          <div class="mySlides fade">
             <h1>Feature three </h1>
-            <ul>
-               <li>Facebok</li>
-            </ul>
+            <textarea id="feedTextArea"></textarea>
+            <button onclick="addFeed()">Submit</button>
+            <div id="feedsList">
+            </div>
          </div>
          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
          <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -114,6 +115,23 @@
                dots[i].className = dots[i].className.replace(" active", "");
            }
            slides[slideIndex-1].style.display = "block";  
+         }
+
+         //Added by Harsha to post a feed.
+         function addFeed() {
+            var feedTextArea = document.getElementById("feedTextArea");
+            var feedsList = document.getElementById("feedsList");
+            var feedToUpdate = feedTextArea.value;
+            //if("" != feedToUpdate && undefined != feedToUpdate && null != feedToUpdate){
+            if(Boolean(feedToUpdate)){
+               //creating a paragraph tag to show the feed.
+               var p = document.createElement("p");
+               var feed = document.createTextNode(feedToUpdate);
+               p.appendChild(feed);
+               //appending that p tag to feedlist
+               feedsList.appendChild(p);
+               feedTextArea.value = "";
+            }
          }
       </script>
    </body>
