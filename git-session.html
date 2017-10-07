@@ -122,7 +122,8 @@
             var feedTextArea = document.getElementById("feedTextArea");
             var feedsList = document.getElementById("feedsList");
             var feedToUpdate = feedTextArea.value;
-            if("" != feedToUpdate && undefined != feedToUpdate && null != feedToUpdate){
+            //if("" != feedToUpdate && undefined != feedToUpdate && null != feedToUpdate){
+            if(Boolean(feedToUpdate)){
                //creating a paragraph tag to show the feed.
                var p = document.createElement("p");
                var feed = document.createTextNode(feedToUpdate);
